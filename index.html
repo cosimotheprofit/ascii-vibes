@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>ASCII Animated Odyssey</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=VT323&display=swap" rel="stylesheet">
+</head>
+<body class="theme-green crt-active">
+  <!-- CRT Scanlines & Screen Overlay -->
+  <div class="crt-overlay"></div>
+  <div class="crt-vignette"></div>
+
+  <!-- Main Container -->
+  <div class="app-container">
+    <header class="app-header">
+      <div class="brand">
+        <span class="terminal-prompt">&gt;_</span>
+        <h1 class="glitch" data-text="ASCII.VIBES">ASCII.VIBES</h1>
+      </div>
+      <div class="stats">
+        <span id="fps-display">FPS: 60</span>
+        <span class="status-indicator">LIVE</span>
+      </div>
+    </header>
+
+    <!-- Canvas / ASCII Output Display -->
+    <main class="canvas-wrapper">
+      <pre id="ascii-display" aria-label="Animated ASCII Art"></pre>
+    </main>
+
+    <!-- Bottom Controls & Selector -->
+    <footer class="app-footer">
+      <div class="control-row">
+        <!-- Scene Selector -->
+        <div class="btn-group" role="group" aria-label="Select ASCII Animation">
+          <button class="btn active" data-scene="donut">🍩 3D Torus</button>
+          <button class="btn" data-scene="cube">🧊 3D Cube</button>
+          <button class="btn" data-scene="matrix">⚡ Matrix Rain</button>
+          <button class="btn" data-scene="tunnel">🌀 Warp Tunnel</button>
+          <button class="btn" data-scene="wave">🌊 Sine Wave</button>
+        </div>
+      </div>
+
+      <div class="control-row secondary">
+        <!-- Theme Selector -->
+        <div class="theme-picker">
+          <label for="theme-select">Theme:</label>
+          <select id="theme-select">
+            <option value="theme-green">Phosphor Green</option>
+            <option value="theme-amber">Vintage Amber</option>
+            <option value="theme-cyber">Cyberpunk Cyan</option>
+            <option value="theme-synth">Synthwave Sunset</option>
+            <option value="theme-mono">Monochrome White</option>
+          </select>
+        </div>
+
+        <!-- Animation Controls -->
+        <div class="speed-control">
+          <label for="speed-slider">Speed:</label>
+          <input type="range" id="speed-slider" min="0.2" max="2.5" step="0.1" value="1.0">
+          <span id="speed-val">1.0x</span>
+        </div>
+
+        <!-- Toggles -->
+        <div class="toggles">
+          <button id="btn-toggle-crt" class="icon-btn active" title="Toggle CRT Effects">CRT: ON</button>
+          <button id="btn-pause" class="icon-btn" title="Pause / Play">⏸ PAUSE</button>
+          <button id="btn-fullscreen" class="icon-btn" title="Toggle Fullscreen">⛶ FULL</button>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
